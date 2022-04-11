@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h2 class="my-5">These are all the Video Games:</h2>
+
+        <div class="row row-cols3 g-2">
+            {% for game in games %}
+            {% if game.game_image %}
+            <img src="{{ game.game_image.url }}" class="center">
+            {% endif %}
+            <div class="col">
+                <div class="p-3 border">
+                    <a href="{% url 'games.detail' pk=game.id %}" class="text-dark text-decoration-non"><h2>{{game.title}}</h2>
+                    </a>
+                    {{game.description|truncatechars:20}}
+                    
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+{% endblock %}
+    
+
+
