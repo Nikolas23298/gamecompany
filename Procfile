@@ -1,0 +1,1 @@
+web: gunicorn gamecompany.wsgi:application --log-file - --log-level debug
